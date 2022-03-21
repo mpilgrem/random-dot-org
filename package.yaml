@@ -1,0 +1,75 @@
+spec-version: 0.36.0
+
+name:                RandomDotOrg
+version:             1.0.0.0
+github:              "mpilgrem/random-dot-org"
+license:             BSD3
+author:              "Mike Pilgrem"
+maintainer:          "public@pilgrem.com"
+copyright:           "Copyright 2022-2024 Mike Pilgrem"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+synopsis:            Haskell bindings to RANDOM.ORG Core API
+category:            Web
+
+description: |
+  Haskell bindings to the <https://www.random.org/ RANDOM.ORG> Core API
+  (Release 4). The API provides access to a true random number generator (TRNG)
+  based on atmospheric noise.
+
+  NB: The use of the API's services is subject to the terms and conditions of
+  Randomness and Integrity Services Limited.
+
+  An example of use of the library is provided in the example directory.
+
+  This package and its repository have no connection with Randomness and
+  Integrity Services Limited or its affilates or the RANDOM.ORG domain.
+
+dependencies:
+- base >= 4.7 && < 5
+- aeson
+- binary
+- bytestring
+- http-client
+- http-client-tls
+- http-media
+- servant
+- servant-client >= 0.17
+- servant-client-core
+- servant-jsonrpc >= 1.2.0
+- servant-jsonrpc-client >= 1.2.0
+- text
+- time
+- time-compat
+- uuid-types
+
+ghc-options:
+- -Wall
+
+flags:
+  example:
+    description: Build the example application RandomDotOrg-example.
+    manual: true
+    default: false
+
+library:
+  source-dirs: src
+  other-modules:
+  - System.Random.Atmospheric.Api.DateTime
+
+executables:
+  RandomDotOrg-example:
+    main:                Main.hs
+    source-dirs:         example
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - RandomDotOrg
+    when:
+    - condition: "!flag(example)"
+      buildable: false

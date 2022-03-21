@@ -1,0 +1,7 @@
+# Haskell Tool Stack-related
+.stack-work/
+*.yaml.lock
+*~
+
+# Haddock documentation
+docs/

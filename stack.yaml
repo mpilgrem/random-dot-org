@@ -1,0 +1,5 @@
+snapshot: lts-22.36 # GHC 9.6.6
+
+extra-deps:
+- servant-jsonrpc-1.2.0@sha256:595a37f4966ce4580813efa889d26165061225778b8ab91b4a88bc3575cbd1bb,1339
+- servant-jsonrpc-client-1.2.0@sha256:b89aa1e30a781aa3164d40a367e7c1a6672d498f4f46d6ad45673ce2fe22b445,1171

@@ -1,0 +1,22 @@
+snapshot: nightly-2024-10-04 # GHC 9.8.2
+compiler: ghc-9.10.1
+
+extra-deps:
+# Specified, as pruned
+- Win32-2.14.0.0@sha256:e34af84fec733b5c0c8f052ec39499785e719e2fbbe308983adf26c82ea3704d,5942
+# Specified, as pruned
+- directory-1.3.8.3@sha256:0aa305acf5d6026647a5f7461ff81d65cffdf6082790ab0bf70763a4f2bdfe6c,3306
+# Specified, as pruned
+- filepath-1.5.2.0@sha256:8af7a843cba7eddc8d44ae94002b766ee8c23cbcd3ecdb2cc79ee6e0a694419a,5178
+# Specified, as pruned
+- process-1.6.19.0@sha256:807bfa9b4038b59ae0c362bd94a783f898fbe0b42dbe1f2ede3c392bf2b8727d,3148
+- servant-jsonrpc-1.2.0@sha256:595a37f4966ce4580813efa889d26165061225778b8ab91b4a88bc3575cbd1bb,1339
+- servant-jsonrpc-client-1.2.0@sha256:b89aa1e30a781aa3164d40a367e7c1a6672d498f4f46d6ad45673ce2fe22b445,1171
+# Specified, as pruned
+- time-1.12.2@sha256:88e8493d9130038d3b9968a2530a0900141cd3d938483c83dde56e12b875ebc8,6510
+
+flags:
+  Win32:
+    os-string: true
+   directory:
+     os-string: true
