@@ -1,0 +1,72 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types:
+      - opened
+      - synchronize
+jobs:
+  ubuntu:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        cabal: ["3.6"]
+        ghc:
+          - "8.8.4"
+          - "8.10.7"
+          - "9.0.2"
+    steps:
+      - uses: actions/checkout@v2
+      - uses: haskell/actions/setup@v1.2.7
+        id: setup-haskell-cabal
+        with:
+          ghc-version: ${{ matrix.ghc }}
+          cabal-version: ${{ matrix.cabal }}
+      - run: cabal v2-update
+      - run: cabal v2-freeze
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ${{ steps.setup-haskell-cabal.outputs.cabal-store }}
+            dist-newstyle
+          key: ${{ runner.os }}-${{ matrix.ghc }}-${{ hashFiles('cabal.project.freeze') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ matrix.ghc }}-
+      - run: cabal v2-build
+  windows:
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        cabal: ["3.6"]
+        ghc:
+          - "8.8.4"
+          - "8.10.7"
+        winio: [false]
+        include:
+          - ghc: "9.0.2"
+            cabal: "3.6"
+            winio: true
+    steps:
+      - uses: actions/checkout@v2
+      - uses: haskell/actions/setup@v1.2.7
+        id: setup-haskell-cabal
+        with:
+          ghc-version: ${{ matrix.ghc }}
+          cabal-version: ${{ matrix.cabal }}
+      - run: cabal v2-update
+      - run: cabal v2-freeze
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ${{ steps.setup-haskell-cabal.outputs.cabal-store }}
+            dist-newstyle
+          key: ${{ runner.os }}-${{ matrix.ghc }}-${{ hashFiles('cabal.project.freeze') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ matrix.ghc }}-
+      - run: cabal v2-build
+      - if: matrix.winio
+        run: cabal v2-build --ghc-option=-with-rtsopts=--io-manager=native

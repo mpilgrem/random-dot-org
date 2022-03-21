@@ -1,0 +1,10 @@
+resolver:
+  url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/19/0.yaml
+packages:
+- .
+extra-deps:
+- aeson-1.5.6.0@sha256:5003bb6fd260d2e2d5a51dee2bf5c8e8f29e4e0e0288fef805c22dcc80ecab06,6788
+- servant-0.18.3@sha256:0fbf8f9274bdfda6a778d6d7ec714c9f0abd17102af9bc002a93fe3ed284e8ca,5309
+- servant-client-0.18.3@sha256:570145df5209b245a141eec6841fbca6785cd88e073e85eecbeff4438ca34784,4602
+- servant-jsonrpc-1.1.0@sha256:272435efde22857886e5fe39c409fb768df27ed349e8f65457b74e7041ba8311,1217
+- servant-jsonrpc-client-1.1.0@sha256:75667a6bcd21682371ac8093791fd3d4c11c084c9bda93708dcb219f1b4ef966,1171

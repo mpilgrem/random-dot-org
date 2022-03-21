@@ -1,0 +1,6 @@
+# Haskell Tool Stack-related
+.stack-work/
+*~
+
+# Haddock documentation
+docs/

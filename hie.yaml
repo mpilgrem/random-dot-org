@@ -1,0 +1,10 @@
+cradle:
+  stack:
+    - path: "./src"
+      component: "random-dot-org:lib"
+
+    - path: "./example/Main.hs"
+      component: "random-dot-org:exe:random-dot-org-example"
+
+    - path: "./example/Paths_random_dot_org.hs"
+      component: "random-dot-org:exe:random-dot-org-example"
