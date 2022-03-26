@@ -24,7 +24,7 @@ packages:
       size: 1300
       sha256: 4f3a9dd501ea02289559f8c49df88fb00a2f34ac225c2d9ae1df5970bf8ce4db
   original:
-    hackage: servant-client-0.18.3
+    hackage: servant-client-0.18.3@sha256:570145df5209b245a141eec6841fbca6785cd88e073e85eecbeff4438ca34784,4602
 - completed:
     hackage: servant-client-core-0.18.3@sha256:db2551c94cc17bef7682602082d6a16e79593cfc939f2d696d4ccee21b2b2091,3649
     pantry-tree:
